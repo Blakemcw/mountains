@@ -5,21 +5,21 @@
 #include <vector>     /* vector */
 
 class Mountain {
- private:
-  // Private Variables
-  std::size_t size;
-  std::vector<std::vector<int>> heightmap;
-  int seed;
-
-  // Private Functions
-  void InitializeHeightmap();
-  void InitializeCorners();
-
  public:
   // Public Functions
   Mountain(std::size_t _size, int _seed);
   void Render();
   ~Mountain();
+
+ private:
+  // Private Variables
+  std::size_t size;
+  std::vector<std::vector<int>> heightmap = {};
+  int seed;
+
+  // Private Functions
+  void InitializeHeightmap();
+  void InitializeCorners();
 };
 
 #endif // MOUNTAINS_MOUNTAIN_H_

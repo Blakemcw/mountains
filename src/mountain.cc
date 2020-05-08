@@ -5,6 +5,19 @@
 
 #include <cmath>      /* pow */
 
+// =============================================================================
+// Public Functions
+// =============================================================================
+
+Mountain::Mountain(size_t _size, int _seed = time(NULL)) {
+  Mountain::size = pow(2.0, _size) + 1;
+  Mountain::seed = _seed;
+  Mountain::InitializeHeightmap();
+}
+
+Mountain::~Mountain() {}
+
+void Mountain::Render() {}
 
 // =============================================================================
 // Private Functions
@@ -19,18 +32,3 @@ void Mountain::InitializeHeightmap() {
     Mountain::heightmap.push_back(tempRow);
   }
 }
-
-
-// =============================================================================
-// Public Functions
-// =============================================================================
-
-Mountain::Mountain(size_t _size, int _seed = time(NULL)) {
-  Mountain::size = pow(2.0, _size) + 1;
-  Mountain::seed = _seed;
-  Mountain::InitializeHeightmap();
-}
-
-Mountain::~Mountain() {}
-
-void Mountain::Render() {}
