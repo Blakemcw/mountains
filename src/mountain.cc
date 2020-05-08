@@ -1,4 +1,4 @@
-#include "./mountain.h"
+#include "mountain.h"
 
 #include <stdlib.h>   /* srand, rand */
 #include <time.h>     /* time */
@@ -10,7 +10,15 @@
 // Private Functions
 // =============================================================================
 
-void Mountain::InitializeHeightmap() {}
+void Mountain::InitializeHeightmap() {
+  for (std::size_t i = 0; i < Mountain::size; ++i) {
+    std::vector<int> tempRow;
+    for (std::size_t j = 0; j < Mountain::size; ++j) {
+      tempRow.push_back(0);
+    }
+    Mountain::heightmap.push_back(tempRow);
+  }
+}
 
 
 // =============================================================================
