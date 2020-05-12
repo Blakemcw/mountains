@@ -1,6 +1,7 @@
 #include "../src/mountain.h"
 
 #include <vector>
+#include <iostream>
 
 #include "catch.h"
 
@@ -25,5 +26,24 @@ TEST_CASE("heightmap is initialized", "[mountain][heightmap]") {
 
     // Check columns
     REQUIRE(heightmap[0].size() % 2 >= 1);
+  }
+}
+
+TEST_CASE("heightmap corners are initialized", "[mountain][heightmap]") {
+  std::size_t mountain_size = 5;
+  int seed = 10;
+  Mountain mountain = Mountain(mountain_size, seed);
+
+  // Get corners from mountain
+  std::vector<int> corners(4);
+  corners[0] = mountain.GetHeightmap()[0][0];           // top-left
+  corners[1] = mountain.GetHeightmap()[0].back();       // top-right
+  corners[2] = mountain.GetHeightmap().back()[0];       // bottom-left
+  corners[3] = mountain.GetHeightmap().back().back();   // bottom-right
+
+  SECTION("all corners are set to values greater than 0") {
+    for (int corner : corners) {
+      REQUIRE(corner > 0);
+    }
   }
 }
