@@ -3,8 +3,6 @@
 #include <cstddef>    /* size_t */
 #include <vector>     /* vector */
 
-using hmap = std::vector<std::vector<int>>;
-
 class Mountain {
  public:
   Mountain(std::size_t _size, int _seed);
@@ -14,7 +12,7 @@ class Mountain {
   void PrintHeightmap();
 
   std::size_t GetSize() { return Mountain::size; }
-  hmap GetHeightmap()   { return Mountain::heightmap; }
+  std::vector<std::vector<int> > GetHeightmap() { return Mountain::heightmap; }
 
  private:
   void InitializeHeightmap();
