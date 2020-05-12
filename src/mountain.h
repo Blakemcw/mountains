@@ -1,25 +1,25 @@
-#ifndef MOUNTAINS_MOUNTAIN_H_
-#define MOUNTAINS_MOUNTAIN_H_
+#pragma once
 
 #include <cstddef>    /* size_t */
 #include <vector>     /* vector */
 
+using hmap = std::vector<std::vector<int>>;
+
 class Mountain {
  public:
-  // Public Functions
   Mountain(std::size_t _size, int _seed);
-  void Render();
   ~Mountain();
 
+  void Render();
+  void PrintHeightmap();
+
+  std::size_t GetSize() { return Mountain::size; }
+  hmap GetHeightmap()   { return Mountain::heightmap; }
+
  private:
-  // Private Variables
-  std::size_t size;
-  std::vector<std::vector<int>> heightmap = {};
-  int seed;
-
-  // Private Functions
   void InitializeHeightmap();
-  void InitializeCorners();
-};
 
-#endif // MOUNTAINS_MOUNTAIN_H_
+  std::size_t size;
+  std::vector<std::vector<int> > heightmap;
+  int seed;
+};
