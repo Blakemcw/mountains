@@ -9,7 +9,7 @@ TEST_CASE("heightmap is initialized", "[mountain][heightmap]") {
   int seed = 10;
   Mountain mountain = Mountain(mountain_size, seed);
 
-  std::vector<std::vector<int>> heightmap = mountain.GetHeightmap();
+  std::vector<std::vector<int> > heightmap = mountain.GetHeightmap();
 
   SECTION("the number of rows and columns is equal to 2^size + 1") {
     // Check row size
