@@ -16,6 +16,7 @@ class Mountain {
 
  private:
   void InitializeHeightmap();
+  void InitializeCorners();
 
   std::size_t size;
   std::vector<std::vector<int> > heightmap;
